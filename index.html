@@ -7,415 +7,400 @@
     <title>Document</title>
 </head>
 <style>
-    @import url("img.jpg");
-    .navbar-toggler,
-    .navbar-toggler:focus,
-    .navbar-toggler:active,
-    .navbar-toggler-icon:focus {
+    @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+     :root {
+        --header-height: 3.5rem;
+        --hue: 255;
+        --first-color: hsl(var(--hue), 90%, 60%);
+        --first-color-alt: hsl(var(--hue), 82%, 56%);
+        --first-color-light: hsl(var(--hue), 40%, 80%);
+        --title-color: hsl(var(--hue), 24%, 16%);
+        --text-color: hsl(var(--hue), 8%, 45%);
+        --text-color-light: hsl(var(--hue), 8%, 60%);
+        --white-color: hsl(0, 0%, 100%);
+        --body-color: hsl(0, 0%, 100%);
+        --container-color: hsl(0, 0%, 100%);
+        --shadow-color: hsla(var(--hue), 90%, 30%, 0.1);
+        --body-font: "Syne", sans-serif;
+        --biggest-font-size: 2rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: 0.938rem;
+        --small-font-size: 0.813rem;
+        --smaller-font-size: 0.75rem;
+        --font-regular: 400;
+        --font-medium: 500;
+        --font-semi-bold: 600;
+        --z-tooltip: 10;
+        --z-fixed: 100;
+        --z-modal: 1000;
+    }
+    
+    @media screen and (min-width: 1150px) {
+         :root {
+            --biggest-font-size: 4.5rem;
+            --h1-font-size: 2.25rem;
+            --h2-font-size: 1.5rem;
+            --h3-font-size: 1.25rem;
+            --normal-font-size: 1.125rem;
+            --small-font-size: 0.875rem;
+            --smaller-font-size: 0.813rem;
+        }
+    }
+    
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body,
+    input,
+    textarea,
+    button {
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+    }
+    
+    body {
+        background-color: var(--body-color);
+        color: var(--text-color);
+        transition: background-color 0.4s;
+    }
+    
+    input,
+    button,
+    textarea {
+        border: none;
         outline: none;
-        border: none;
-        box-shadow: none;
     }
     
-    .navbar {
-        background-color: #dcf0f1;
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: var(--title-color);
+        font-weight: var(--font-semi-bold);
     }
     
-    .nav-link {
-        font-size: 18px;
-        position: relative;
-        display: inline-block;
+    ul {
+        list-style: none;
     }
     
-    .nav-link::before {
-        transition: 300ms;
-        height: 3px;
-        content: "";
-        position: absolute;
-        border-radius: 5px;
-        background-color: #087075;
+    a {
+        text-decoration: none;
     }
     
-    .nav-hover::before {
-        width: 0%;
-        bottom: 10px;
-    }
-    
-    .nav-hover:hover::before {
-        width: 70%;
-    }
-    
-    body {
-        background-image: url("https://img.freepik.com/free-photo/blue-toned-collection-paper-sheets-with-copy-space_23-2148320445.jpg?w=900&t=st=1709066598~exp=1709067198~hmac=c5c0995a7289d90e1e59f33310d419716d3975cedc8f97a8f31c119f7619dcaf");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        overflow-x: hidden;
-    }
-    
-    body::-webkit-scrollbar-track {
-        border-radius: 10px;
-    }
-    
-    body::-webkit-scrollbar {
-        width: 7px;
-        /* background-color: #F5F5F5; */
-    }
-    
-    body::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: #66dce2;
-    }
-    
-    body {
-        font-family: "Fira Sans", sans-serif;
-    }
-    
-    #home {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #home a {
-        color: rgb(37, 35, 35);
-    }
-    
-    #home p {
-        font-size: 25px;
-    }
-    
-    #home i {
-        cursor: pointer;
-        transition: 0.5s;
-    }
-    
-    #home i:hover {
-        color: rgb(146, 146, 0);
-    }
-    
-    #scrollBtn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999;
-    }
-    
-    #skills i {
-        height: 100px;
-        width: 100px;
-        background-color: whitesmoke;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #skills i:hover {
-        cursor: pointer;
-        transform: scale(1.03);
-    }
-    
-    #projects .col-lg-4 {
-        padding: 20px;
-    }
-    
-    #projects .card {
-        border: none;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        margin: 10px auto;
-        cursor: pointer;
-        position: relative;
-        color: white;
-    }
-    
-    #projects .card-body {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-        display: none;
-    }
-    
-    #projects .card:hover .card-body {
+    img {
         display: block;
-        background-color: rgba(0, 0, 0, 0.8);
+        max-width: 100%;
+        height: auto;
     }
     
-    #education .education {
-        cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        background-color: rgba(46, 223, 193, 0.5);
+    .nav__actions {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
     }
     
-    #education .education:hover {
-        transform: scale(1.02);
+    .container {
+        max-width: 1120px;
+        margin-inline: 1.5rem;
     }
     
-    @media (max-width: 768px) {
-        #home img {
-            margin-bottom: 30px;
-            width: 200px;
+    .grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+    
+    .section {
+        padding-block: 5rem 1rem;
+    }
+    
+    .section__title {
+        font-size: var(--h1-font-size);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .perfil {
+        width: 250px;
+        height: 250px;
+        background-color: var(--body-color);
+        border: 8px solid var(--first-color);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        transition: background-color 0.4s;
+    }
+    
+    .perfil__content {
+        width: 180px;
+        height: 180px;
+        border: 10px solid var(--first-color);
+        border-radius: 50%;
+        overflow: hidden;
+        justify-content: center;
+        align-items: flex-end;
+        background: linear-gradient( 180deg, hsl(var(--hue), 90%, 80%), hsl(var(--hue), 90%, 30%));
+    }
+    
+    .perfil__img {
+        width: 160px;
+    }
+    
+    .main {
+        overflow: hidden;
+    }
+    
+    .button {
+        display: inline-flex;
+        justify-content: center;
+        background-color: var(--first-color);
+        color: var(--white-color);
+        font-weight: var(--font-semi-bold);
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.4s, box-shadow 0.4s;
+    }
+    
+    .button:hover {
+        background-color: var(--first-color-alt);
+        box-shadow: 0 8px 24px hsla(var(--hue), 90%, 30%, 0.3);
+    }
+    
+    .about__page {
+        padding-bottom: 4rem;
+    }
+    
+    .about__perfil {
+        justify-self: center;
+    }
+    
+    .about__content {
+        row-gap: 4rem;
+    }
+    
+    .about__info {
+        row-gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .about__name {
+        font-size: var(--h1-font-size);
+    }
+    
+    .about__profession {
+        font-size: var(--h2-font-size);
+    }
+    
+    .about__description b {
+        color: var(--first-color);
+    }
+    
+    .about__button {
+        justify-self: center;
+    }
+    
+    .about__skills-title {
+        font-size: var(--h3-font-size);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .about__skills-img {
+        position: relative;
+        width: 35px;
+        transition: transform 0.4s;
+    }
+    
+    .about__skills-img:hover {
+        transform: translateY(-0.5rem);
+    }
+    
+    .about__skills-hover-text {
+        position: absolute;
+        font-size: var(--small-font-size);
+        color: var(--text-color);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .about_skills-img:hover .about_skills-hover-text {
+        opacity: 1;
+    }
+    
+    .about_skills-img .about_skills-hover-text::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: var(--first-color);
+        transition: width 0.3s ease;
+        transition-delay: 0.3s;
+        /* Délai avant l'apparition du soulignement */
+    }
+    
+    .about_skills-img:hover .about_skills-hover-text::after {
+        width: 100%;
+    }
+    
+    .about__skills-content {
+        grid-template-columns: repeat(5, max-content);
+        justify-content: center;
+        align-items: center;
+        gap: 2rem 1.5rem;
+    }
+    /* For small devices */
+    
+    @media screen and (max-width: 320px) {
+        .container {
+            margin-inline: 1rem;
         }
-        #home .col-md-8 {
+        .about__skills-content {
+            grid-template-columns: repeat(4, max-content);
+        }
+    }
+    
+    @media screen and (max-width: 458px) {
+        .perfil__img {
+            width: 400px;
+            position: relative;
+            bottom: 60px;
+        }
+    }
+    /* For medium devices */
+    
+    @media screen and (min-width: 576px) {
+        .about__container {
+            grid-template-columns: 400px;
+            justify-content: center;
+        }
+    }
+    /* For large devices */
+    
+    @media screen and (min-width: 1150px) {
+        .container {
+            margin-inline: auto;
+        }
+        .section {
+            padding-block: 7rem 2rem;
+        }
+        .section__title {
+            margin-bottom: 3.5rem;
+        }
+        .perfil {
+            width: 500px;
+            height: 500px;
+            border-width: 10px;
+        }
+        .perfil__content {
+            width: 420px;
+            height: 420px;
+            border-width: 10px;
+        }
+        .perfil__img {
+            width: 400px;
+            position: relative;
+            bottom: 100px;
+        }
+        .about__container {
+            grid-template-columns: 500px 440px;
             align-items: center;
-            text-align: center;
-            padding: 0px;
+            column-gap: 8rem;
+            padding-top: 2rem;
         }
-        #home p {
-            width: 100%;
-            font-size: 18px;
+        .about__data {
+            row-gap: 3.5rem;
         }
-    }
-    
-    @media (max-width: 370px) {
-        #home h1 {
-            font-size: 25px;
+        .about__info {
+            text-align: initial;
+        }
+        .about__button {
+            justify-self: flex-start;
+        }
+        .about__skills-title {
+            text-align: initial;
+        }
+        .about__skills-content {
+            grid-template-columns: repeat(7, max-content);
+            justify-content: initial;
+        }
+        .about__skills-img {
+            width: 40px;
         }
     }
 </style>
 
 <body>
-    <!doctype html>
-    <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="SRI LAXMAN - Full Stack Web Developer Portfolio. View my projects, skills, and contact information.">
-        <meta name="keywords" content="SRI LAXMAN, Portfolio, Full Stack Web Developer, MERN Stack, Projects, Skills">
-        <meta name="author" content="SRI LAXMAN">
-        <title>YASH KOLADIYA - Portfolio</title>
-        <link rel="shortcut icon" href="signature.png" type="image/png">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
-    </head>
+    <section class="about section">
+        <h2 class="section__title">
+            My Personal <br> Information
+        </h2>
 
-    <body>
-        <header class="fixed-top" data-aos="fade-down">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-
-                        <img src="signature.png" alt="signature.png" width="100">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" href="#home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" href="#about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" href="#education">Education</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" href="#skills">Skills</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" href="#projects">Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="about_container about_page container grid">
+            <div class="about__perfil perfil">
+                <div class="perfil__content">
+                    <img src="https://i.postimg.cc/FKZNKwgh/Whats-App-Image-2024-08-09-at-18-59-13-ef8959c6.jpg" alt="image" class="perfil__img">
                 </div>
-            </nav>
-        </header>
-        <main>
-            <section id="home">
-                <div class="container row flex-wrap-reverse">
-                    <div class="col-md-8 d-flex flex-column justify-content-center" data-aos="fade-right">
-                        <h1 class="display-5 fw-bold mb-3">👋 Hello I am SRI LAXMAN </h1>
-                        <p class="px-2 flex">I am a <span id="typed-text"></span></p>
-                        <div class="d-flex gap-3 fs-3 px-2">
+            </div>
 
-
-                            <A href="https://www.instagram.com/crazy__lax__9331/" class="list-group-item"><i class="fa-brands fa-instagram"></i></a>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center" data-aos="fade-left">
-                        <img src="https://i.postimg.cc/7YD4t5Jr/Whats-App-Image-2024-08-08-at-20-33-04-210ffa64.jpg' " class="img-fluid border rounded-circle" alt="SRI LAXMAN profile" loading="lazy" width="300">
-                    </div>
-                </div>
-                <button class="btn btn-dark" id="scrollBtn">
-            <i class="fa-solid fa-arrow-up"></i>
-          </button>
-            </section>
-            <section id="about">
-                <div class="container py-5 mb-5">
-
-                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" data-aos="fade-up">About Me</h1>
-                    <p class="fs-5" data-aos="fade-up">I am simply waste.</p>
-                    <div class="d-flex gap-2" data-aos="fade-up">
-                        <a href="https://drive.google.com/file/d/1EF-Udc1UV2yxhBXXKRy1kfCt-O-nktV0/view?usp=sharing" class="list-group-item"><button type="button" class="btn btn-dark">My Resume</button>
-                <a href="#contact" class="btn btn-outline-secondary ">Contact Me</a>
+            <div class="about__content grid">
+                <div class="about__data grid">
+                    <div class="about__info grid">
+                        <h1 class="about__name">LAXMAN</h1>
+                        <h2 class="about__profession">Web developer</h2>
+                        <p class="about__description">
+                            Passionate about creating <b>Web Pages</b> , I have years of experience and many clients are happy with the projects carried out. </p>
                     </div>
 
+                    <a href="contact.html" class="about__button button">Contact Me</a>
                 </div>
-            </section>
-            <section id="education">
-                <div class="container py-5" id="featured-3">
-                    <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Education</h2>
-                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
-                        <div class="col p-3">
-                            <div class="education p-3 rounded" data-aos="flip-right">
+                <div class="about__skills">
+                    <h3 class="about__skills-title">My Skills Are</h3>
 
-                                <i class="fa-solid fa-graduation-cap fs-2 mb-4"></i>
+                    <div class="about__skills-content grid">
 
-                                <h3 class="fs-3">B.sc.cs(AI$ML) (2023-2026)</h3>
-                                <p class="fs-5">NGMC BHATHIAR UNIVERSITY</p>
-                                <p>Passed the examination in 2026.</p>
-                            </div>
-
+                        <div class="about__skills-img">
+                            <!-- HTML -->
+                            <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="image HTML" class="about__skills-img">
+                            <p class="about__skills-hover-text">HTML</p>
                         </div>
 
+                        <div class="about__skills-img">
+                            <!-- CSS -->
+                            <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="image CSS" class="about__skills-img">
+                            <p class="about__skills-hover-text">CSS</p>
+                        </div>
+
+                        <div class="about__skills-img">
+                            <!-- JavaScript -->
+                            <img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" alt="image JavaScript" class="about__skills-img">
+                            <p class="about__skills-hover-text">JavaScript</p>
+                        </div>
+
+                        <div class="about__skills-img">
+                            <!-- VSCode -->
+                            <img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="image VS Code" class="about__skills-img">
+                            <p class="about__skills-hover-text">VSCode</p>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <section id="skills" class="py-5">
-                <h2 class="text-center mb-5" data-aos="fade-up">My Skills</h2>
-                <div class="container-fluid d-flex flex-wrap gap-3 align-items-center justify-content-center display-5">
+            </div>
+        </div>
+    </section>
+</body>
 
-                    <i class="fa-brands fa-html5" data-aos="zoom-in"></i>
-                    <i class="fa-brands fa-css3" data-aos="zoom-in"></i>
-                    <i class="fa-brands fa-js" data-aos="zoom-in"></i>
-                    <i class="fa-brands fa-bootstrap" data-aos="zoom-in"></i>
-                    <i class="fa-brands fa-java" data-aos="zoom-in"></i>
-                    <i class="fa-brands fa-c" data-aos="zoom-in"></i>
-                    <i class="fa-brands fa-python" data-aos="zoom-in"></i>
-
-                </div>
-            </section>
-            <section id="projects" class="py-5 my-5">
-                <h2 class="text-center" data-aos="fade-up">My Projects</h2>
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2plY3R8ZW58MHx8MHx8fDA%3D" alt="project" class="card-img-top">
-                                <div class="card-body">
-
-                                    <h5 class="card-title">P1. WORKSURVAYFORM</h5>
-                                    <p class="card-text">Workplace Satisfaction Survey This project contains the source code for a simple yet elegant workplace satisfaction survey form. The form collects feedback from employees about their workplace experiences and suggestions
-                                        for improvements.!</p>
-                                    <div class="d-flex gap-3 fs-4">
-                                        <a href="https://github.com/KOLADIYAYASH/WORKSURVAY-" class="list-group-item"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2plY3R8ZW58MHx8MHx8fDA%3D" alt="project" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">P2. TIC TAC TOE </h5>
-                                    <p class="card-text">Robot Pointing on a Wall Circle with gradienTic-Tac-Toe Web application USING HTML/CSS/JS
-                                    </p>
-                                    <div class="d-flex gap-3 fs-4">
-                                        <a href="https://github.com/KOLADIYAYASH/Tic-Tac-Toe-Web-application" class="list-group-item"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2plY3R8ZW58MHx8MHx8fDA%3D" alt="project" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">P3. UNIT_CALCULATER</h5>
-                                    <p class="card-text">"A versatile Unit Calculator that converts between Imperial and Metric units for length, weight, and volume. Features easy-to-use input fields, real-time conversion, and a dark mode toggle for a user-friendly experience."</p>
-                                    <div class="d-flex gap-3 fs-4">
-                                        <a href="https://github.com/KOLADIYAYASH/UNIT_CALCULATER" class="list-group-item"> <i class="fa-brands fa-github"></i></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2plY3R8ZW58MHx8MHx8fDA%3D" alt="project" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">P4. Silver Oak University Website </h5>
-                                    <p class="card-text">A responsive and modern website for Silver Oak University, featuring sections for About Us, Courses, Contact, and Events. The site includes a video background, dynamic animations, and a user-friendly navigation bar.</p>
-                                    <div class="d-flex gap-3 fs-4">
-                                        <a href="https://github.com/KOLADIYAYASH/210430100361-B.C.A-sou-25-5-22-" class="list-group-item"></a><i class="fa-brands fa-github"></i>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2plY3R8ZW58MHx8MHx8fDA%3D" alt="project" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">P5. Flomic_Logistics_Website</h5>
-                                    <p class="card-text">This project is a comprehensive and responsive website for Flomic Logistics. It showcases the company's services, portfolio, and contact information in a user-friendly and visually appealing format. Flomic Logistics
-                                        Website This project is a comprehensive and responsive website for Flomic Logistics. It showcases the company's services, portfolio, and contact information in a user-friendly and visually appealing format.</p>
-                                    <div class="d-flex gap-3 fs-4">
-                                        <a href="https://github.com/KOLADIYAYASH/Flomic_Logistics_Website" class="list-group-item"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2plY3R8ZW58MHx8MHx8fDA%3D" alt="project" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">P6. BASICSWEBPAGMAINPAG</h5>
-                                    <p class="card-text">This project provides a foundational guide to HTML, CSS, and JavaScript. It includes a responsive design, interactive sidebar, and utilizes Font Awesome icons. Ideal for beginners, it was created as part of a freeCodeCamp
-                                        project.
-                                    </p>
-                                    <div class="d-flex gap-3 fs-4">
-                                        <a href="https://github.com/KOLADIYAYASH/BASICSWEBPAGMAINPAG" class="list-group-item"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </section>
-            <section id="contact" data-aos="fade-up">
-                <div class="container">
-                    <div class="row my-5 py-5">
-                        <div class="col-md-6 d-flex flex-column align-items-start justify-content-center">
-                            <h1 class="display-5 fw-bold mb-3">Contact Me</h1>
-                            <p class="fs-5">Prefer email? Reach out to me at <i class="fa-solid envelope"></i> <a href="mailto:SRILAXMAN193@gmail.com" target="_blank">SRILAXMAN193@GMAIL.Computer</a></p>
-                            <p class="fs-5"><i class="fa-solid fa-phone"></i>+91 9003889704
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="fs-5">Send me a message</p>
-                            <form action=other_page.php method=POST/GET>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
-                                    <label for="name">Your Name</label>
-                                </div>
-
-                                <div class="form-floating mb-3">
-
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-                                    <label for="email">Your Email</label>
-                                </div>
-
-                                <div class="form-floating mb-3">
-                                    <textarea name="message" id="message" class="form-control" placeholder="Hello Ankit"></textarea>
-                                    <label for="message">Your message</label>
-       
+</html>
